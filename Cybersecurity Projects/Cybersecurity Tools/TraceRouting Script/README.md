@@ -1,10 +1,9 @@
 # Python Tracerouting Tool
+---
 
 ## What is Traceroute?
 
 Traceroute is a network diagnostic tool used to track the path that data packets take from your computer to a destination (like a website or server) across a network, usually the Internet. When you send data over the Internet, it travels through several devices called routers before reaching its destination. Traceroute helps you see each of these "hops" along the way.
-
----
 
 ### How Does It Work?
 
