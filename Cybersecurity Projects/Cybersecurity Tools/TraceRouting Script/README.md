@@ -1,5 +1,4 @@
 # Python Tracerouting Tool
----
 
 ## What is Traceroute?
 
@@ -14,5 +13,7 @@ Traceroute is a network diagnostic tool used to track the path that data packets
 3. **Increment TTL:** Traceroute increases TTL by 1 and sends the packet again. This way, it discovers the next router in the path.
 
 4. **Repeat Until Destination:** This process continues until the packet reaches the final destination or until a set number of hops is reached.
+
+---
 
 ## This Python Tool
