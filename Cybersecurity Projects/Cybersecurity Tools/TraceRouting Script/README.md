@@ -35,3 +35,16 @@ max_hop_limit = args.max_hop_limit
 The script accepts:
 * `-t` or `--target` : IP you want to trace
 * `-m` or `--max_hop_limit` : Maximum number of hops to attempt
+
+### IP Validation
+
+```python
+def is_valid_ip(address):
+    try:
+        ipaddress.ip_address(address)
+        return True
+    except ValueError:
+        return False
+```
+
+Checks if the provided IP is valid and if the IP is invalid, the scripts prints out an error and exits.
