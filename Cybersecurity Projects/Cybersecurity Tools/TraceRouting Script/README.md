@@ -48,3 +48,51 @@ def is_valid_ip(address):
 ```
 
 Checks if the provided IP is valid and if the IP is invalid, the scripts prints out an error and exits.
+
+### Traceroute Logic
+
+```python
+TTL = 1
+print(R,"IP Tracerouting start...",W)
+T1 = time.time()
+```
+
+Starts TTL at 1 and records the start time to measure duration.
+
+```python
+while (TTL <= max_hop_limit):
+    ICMP_PKT = scapy.IP(dst=target_ip_address,ttl=TTL)/scapy.ICMP()
+    ans = scapy.sr1(ICMP_PKT,timeout=3,retry=1,verbose=False)
+```
+
+Creates an ICMP packet with the current TTL of 1 and sends the packet and waits for a reply.
+
+```python
+if(ans[1].type == 11 and ans[1].code == 0):
+    print("router",C,ans[0].src,W," | TTL:",TTL)
+    TTL += 1
+```
+
+Checks if a response is received, will print the routers that have replied.
+
+```pyhton
+if(ans[1].type==0):
+    print("router",C,target_ip_address,W," | TTL:",TTL)
+    break
+```
+
+Returns the final destination and breaks the loop.
+
+```python
+else:
+    print(R,"Unknown router",W," | TTL:",TTL)
+```
+
+If no ICMP reply is received (timeout), it prints "Unknown router".
+
+```python
+T2 = time.time()
+print("IP Tracerouting done in",R,T2-T1,W,"seconds")
+```
+
+Prints how long the entire traceroute took.
