@@ -17,3 +17,21 @@ Traceroute is a network diagnostic tool used to track the path that data packets
 ---
 
 ## This Python Tool
+
+This Python script is a basic Traceroute implementation. It sends ICMP packets (like "ping") to a destination IP address, gradually increasing the TTL (Time-To-Live) to map the path (hops) through the network, revealing each router along the way.
+
+### Argument Parsing (Command Line Inputs)
+
+```python
+parser = argparse.ArgumentParser(description="IP tracerouting python script")
+parser.add_argument('-t','--target_ip_address', help="Target IP Address to be tracerouted")
+parser.add_argument('-m','--max_hop_limit', type=int, help="Maximum Hop Limit")
+
+args = parser.parse_args()
+target_ip_address = args.target_ip_address
+max_hop_limit = args.max_hop_limit
+```
+
+The script accepts:
+* `-t` or `--target` : IP you want to trace
+* `-m` or `--max_hop_limit` : Maximum number of hops to attempt
