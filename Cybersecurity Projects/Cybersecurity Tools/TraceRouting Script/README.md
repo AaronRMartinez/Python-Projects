@@ -6,18 +6,10 @@ Traceroute is a network diagnostic tool used to track the path that data packets
 
 ### How Does It Work?
 
-1. Packets with Time-To-Live (TTL):
+1. **Packets with Time-To-Live (TTL):** Traceroute sends packets with a small "time-to-live" (TTL) value. TTL tells the packet how many routers it can pass through before being discarded.
 
-Traceroute sends packets with a small "time-to-live" (TTL) value. TTL tells the packet how many routers it can pass through before being discarded.
+2. **Each Hop Responds:** When a router discards the packet because its TTL reached 0, it sends a "Time Exceeded" message back. Traceroute records this response.
 
-2. Each Hop Responds:
+3. **Increment TTL:** Traceroute increases TTL by 1 and sends the packet again. This way, it discovers the next router in the path.
 
-When a router discards the packet because its TTL reached 0, it sends a "Time Exceeded" message back. Traceroute records this response.
-
-3. Increment TTL:
- 
-Traceroute increases TTL by 1 and sends the packet again. This way, it discovers the next router in the path.
-
-4. Repeat Until Destination:
-
-This process continues until the packet reaches the final destination or until a set number of hops is reached.
+4. **Repeat Until Destination:** This process continues until the packet reaches the final destination or until a set number of hops is reached.
